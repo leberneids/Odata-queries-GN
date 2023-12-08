@@ -1,0 +1,7 @@
+$select=WorkItemId,WorkItemType,Title,State,Custom_ReasonForMustDo,Custom_RequestforPI,Custom_TestAutomationEffort,Custom_TestManuelEffort,Custom_TestSystemEffort,GNH_AppDev_Effort,GNH_AppSystem_Effort,Custom_LabellingEffort,Custom_MarketAccessEffort,Custom_RegulatoryCertificationEffort,Custom_RegulatoryProductComplianceEffort,GNH_FT_Effort,GNH_OS_Effort,GNH_Sound_Effort,GNH_System_Effort,GNH_Dev_Effort,GNH_QA_Effort,Custom_FeatureElectronicIntegration,Custom_FeatureRadioSystems,Custom_FeatureMaterialsandReliability,Custom_FeatureMechanicalDevelopmentCPH,Custom_FeatureMechanicalDevelopmentXMN,Custom_FeatureAcousticDevelopmentCPH,Custom_FeatureAcousticDevelopmentXMN,Custom_FeatureQualificationXMN
+&$filter=Project/ProjectName eq 'GNH' 
+    and WorkItemType eq 'Portfolio Epic' 
+    and State ne 'Closed' and State ne 'Removed'
+    and Children/WorkItemType eq 'Feature' 
+    and Children/Project/ProjectName eq 'GNH'
+    and Children/State ne 'Closed' and c/State ne 'Removed'

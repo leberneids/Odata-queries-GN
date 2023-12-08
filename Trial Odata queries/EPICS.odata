@@ -1,0 +1,8 @@
+https://analytics.dev.azure.com/GNHearing/GNH/_odata/v3.0-preview/WorkItems?
+    $filter=WorkItemType eq 'Epic'
+        and State ne 'Removed'
+        and State ne 'Closed'
+        and Iteration/IterationPath eq 'GNH'
+        and startswith(Area/AreaPath,'GNH')
+        and Descendants/any()
+    &$select=WorkItemId,Title,State,AssignedTo

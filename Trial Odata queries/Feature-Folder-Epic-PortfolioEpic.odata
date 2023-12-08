@@ -1,0 +1,13 @@
+https://analytics.dev.azure.com/GNHearing/_odata/v1.0/WorkItems?
+    $select=WorkItemId, WorkItemType, Title, State, Custom_ReasonForMustDo, Custom_RequestforPI, Custom_APPRemainingDevelopmentEffort, Custom_APPRemainingSystemEffort, GNH_AppDev_Effort, GNH_AppSystem_Effort, Custom_LabellingEffort, Custom_MarketAccessEffort, Custom_RegulatoryCertificationEffort, Custom_RegulatoryProductComplianceEffort, GNH_FT_Effort, GNH_OS_Effort, GNH_Sound_Effort, GNH_System_Effort, GNH_Dev_Effort, GNH_QA_Effort, Custom_FeatureElectronicIntegration, Custom_FeatureRadioSystems, Custom_FeatureMaterialsandReliability, Custom_FeatureMechanicalDevelopmentCPH, Custom_FeatureMechanicalDevelopmentXMN, Custom_FeatureAcousticDevelopmentCPH, Custom_FeatureAcousticDevelopmentXMN, Custom_FeatureQualificationXMN
+    &$filter=Project/ProjectName eq 'GNH' 
+        and WorkItemType eq 'Feature' 
+        and Parent/WorkItemId ne null
+        and Parent/WorkItemType eq 'Epic'
+        and Parent/Project/ProjectName eq 'GNH'
+        and Parent/State ne 'Closed' and Parent/State ne 'Removed'
+        and State ne 'Closed' and State ne 'Removed'
+        and Parent/Parent/WorkItemId ne null
+        and Parent/Parent/WorkItemType eq 'Portfolio Epic'
+        and Parent/Parent/Project/ProjectName eq 'GNH'
+        and Parent/Parent/State ne 'Closed' and Parent/Parent/State ne 'Removed'

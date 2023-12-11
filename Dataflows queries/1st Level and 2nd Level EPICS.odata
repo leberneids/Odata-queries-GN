@@ -1,0 +1,20 @@
+https://analytics.dev.azure.com/GNHearing/_odata/v3.0/WorkItems?
+$select=WorkItemId, WorkItemType, Title, State,GNH_ValueType, Custom_D1Planned, Custom_D3Planned, Custom_D2Planned, Custom_Heartbeat, TagNames, Custom_TimeRegistrationID, BusinessValue
+&$filter= (WorkItemType eq 'Epic')
+    and Project/ProjectName eq 'GNH' 
+    and Parent/WorkItemId ne null 
+    and Parent/Area/AreaPath eq 'GNH'
+    and Parent/WorkItemType eq 'Portfolio Epic'
+    and State ne 'Closed' and State ne 'Removed'
+    and Parent/State ne 'Closed' and Parent/State ne 'Removed'
+        or (WorkItemType eq 'Epics')
+        and Project/ProjectName eq 'GNH' 
+        and Parent/Parent/WorkItemId ne null 
+        and Parent/Parent/Area/AreaPath eq 'GNH'
+        and Parent/Parent/WorkItemType eq 'Portfolio Epic'
+        and State ne 'Closed' and State ne 'Removed'
+        and Parent/State ne 'Closed' and Parent/State ne 'Removed'
+        and Parent/Parent/State ne 'Closed' and Parent/Parent/State ne 'Removed'
+
+
+https://analytics.dev.azure.com/GNHearing/_odata/v3.0/WorkItems?%24filter=+%28WorkItemType+eq+%27Epic%27%29+and+Project%2FProjectName+eq+%27GNH%27+and+Parent%2FWorkItemId+ne+null+and+Parent%2FArea%2FAreaPath+eq+%27GNH%27+and+Parent%2FWorkItemType+eq+%27Portfolio+Epic%27+and+State+ne+%27Closed%27+and+State+ne+%27Removed%27+and+Parent%2FState+ne+%27Closed%27+and+Parent%2FState+ne+%27Removed%27+or+%28WorkItemType+eq+%27Epics%27%29+and+Project%2FProjectName+eq+%27GNH%27+and+Parent%2FParent%2FWorkItemId+ne+null+and+Parent%2FParent%2FArea%2FAreaPath+eq+%27GNH%27+and+Parent%2FParent%2FWorkItemType+eq+%27Portfolio+Epic%27+and+State+ne+%27Closed%27+and+State+ne+%27Removed%27+and+Parent%2FState+ne+%27Closed%27+and+Parent%2FState+ne+%27Removed%27+and+Parent%2FParent%2FState+ne+%27Closed%27+and+Parent%2FParent%2FState+ne+%27Removed%27&%24select=WorkItemId%2C+WorkItemType%2C+Title%2C+State%2CGNH_ValueType%2C+Custom_D1Planned%2C+Custom_D3Planned%2C+Custom_D2Planned%2C+Custom_Heartbeat%2C+TagNames%2C+Custom_TimeRegistrationID%2C+BusinessValue

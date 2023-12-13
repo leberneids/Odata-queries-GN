@@ -10,3 +10,6 @@ CREATE DATABASE "Devops"
     LC_CTYPE = 'English_Denmark.1252'
     TABLESPACE = pg_default
     CONNECTION LIMIT = -1;
+
+
+-- GRANT ALL PRIVILEGES ON SCHEMA public TO etl;

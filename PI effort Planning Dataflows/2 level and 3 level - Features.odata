@@ -1,5 +1,7 @@
+//This query is used to get all the features that are not closed or removed and are under a portfolio epic, it's used for the Odata-Effort slicer per PI report
 https://analytics.dev.azure.com/GNHearing/_odata/v3.0/WorkItems?
 $select=WorkItemId,WorkItemType,Title,State,Custom_ReasonForMustDo,Custom_RequestforPI,Custom_LifeCycleManagementEffort,Custom_Prioritized,Custom_TestAutomationEffort,Custom_TestManuelEffort,Custom_TestSystemEffort,GNH_AppDev_Effort,GNH_AppSystem_Effort,Custom_LabellingEffort,Custom_MarketAccessEffort,Custom_RegulatoryCertificationEffort,Custom_RegulatoryProductComplianceEffort,GNH_FT_Effort,GNH_OS_Effort,GNH_Sound_Effort,GNH_System_Effort,GNH_Dev_Effort,GNH_QA_Effort,Custom_FeatureElectronicIntegration,Custom_FeatureRadioSystems,Custom_FeatureMaterialsandReliability,Custom_FeatureMechanicalDevelopmentCPH,Custom_FeatureMechanicalDevelopmentXMN,Custom_FeatureAcousticDevelopmentCPH,Custom_FeatureAcousticDevelopmentXMN,Custom_FeatureQualificationXMN
+//Here we combine 2nd and 3rd level features
 &$filter=Project/ProjectName eq 'GNH' 
     and WorkItemType eq 'Feature' 
     and Parent/WorkItemId ne null 

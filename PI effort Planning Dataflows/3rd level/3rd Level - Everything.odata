@@ -1,5 +1,7 @@
 https://analytics.dev.azure.com/GNHearing/_odata/v3.0/WorkItems?
 $select=WorkItemId,WorkItemType,Title,State,Custom_ReasonForMustDo,ParentWorkItemId,GNH_ValueType,Custom_RequestforPI,Custom_Prioritized,Custom_TestAutomationEffort,Custom_TestManuelEffort,Custom_TestSystemEffort,GNH_AppDev_Effort,GNH_AppSystem_Effort,Custom_LabellingEffort,Custom_MarketAccessEffort,Custom_RegulatoryCertificationEffort,Custom_RegulatoryProductComplianceEffort,GNH_FT_Effort,GNH_OS_Effort,GNH_Sound_Effort,GNH_System_Effort,GNH_Dev_Effort,GNH_QA_Effort,Custom_FeatureElectronicIntegration,Custom_FeatureRadioSystems,Custom_FeatureMaterialsandReliability,Custom_FeatureMechanicalDevelopmentCPH,Custom_FeatureMechanicalDevelopmentXMN,Custom_FeatureAcousticDevelopmentCPH,Custom_FeatureAcousticDevelopmentXMN,Custom_FeatureQualificationXMN,Custom_LifeCycleManagementEffort
+// Filter for all work items that are not closed or removed, and are children of a 2nd level item that is not closed or removed, children of a 1st level item that is not closed or removed 
+//and children of a portfolio epic that is not in a closed or removed state, are in the GNH project and area path
 &$filter=Project/ProjectName eq 'GNH'
     and Parent/Parent/Parent/WorkItemId ne null 
     and Parent/Parent/Parent/Area/AreaPath eq 'GNH'

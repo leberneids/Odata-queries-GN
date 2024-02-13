@@ -1,6 +1,7 @@
 //Everything in 1st level except State = Closed or Removed
 https://analytics.dev.azure.com/GNHearing/_odata/v3.0/WorkItems?
 $select=WorkItemId,WorkItemType,Title,State,Custom_ReasonForMustDo,ParentWorkItemId,GNH_ValueType,Custom_RequestforPI,Custom_Prioritized,Custom_TestAutomationEffort,Custom_TestManuelEffort,Custom_TestSystemEffort,GNH_AppDev_Effort,GNH_AppSystem_Effort,Custom_LabellingEffort,Custom_MarketAccessEffort,Custom_RegulatoryCertificationEffort,Custom_RegulatoryProductComplianceEffort,GNH_FT_Effort,GNH_OS_Effort,GNH_Sound_Effort,GNH_System_Effort,GNH_Dev_Effort,GNH_QA_Effort,Custom_FeatureElectronicIntegration,Custom_FeatureRadioSystems,Custom_FeatureMaterialsandReliability,Custom_FeatureMechanicalDevelopmentCPH,Custom_FeatureMechanicalDevelopmentXMN,Custom_FeatureAcousticDevelopmentCPH,Custom_FeatureAcousticDevelopmentXMN,Custom_FeatureQualificationXMN,Custom_LifeCycleManagementEffort 
+// Filter to get all Features and Epics in First Level with a Parent Epic that is not closed or Removed
 &$filter=Project/ProjectName eq 'GNH' 
     and WorkItemType ne 'Milestone'
     and Parent/WorkItemId ne null 

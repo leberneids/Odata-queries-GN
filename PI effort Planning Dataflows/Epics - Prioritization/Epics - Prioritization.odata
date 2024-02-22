@@ -1,0 +1,22 @@
+//All Features in First Level with a Parent Epic that is not closed or Removed
+https://analytics.dev.azure.com/GNHearing/_odata/v3.0/WorkItems?
+// Fields to be included in the query
+$select=WorkItemId,WorkItemType,Title,State,Custom_Prioritized,GNH_ValueType,Priority,ParentWorkItemId,Custom_Heartbeat,Custom_D1Planned, Custom_D3Planned, Custom_D2Planned,Risk, Custom_NextDecision,Custom_TechnicalLead
+// Filter to get all Features and Epics in First Level with a Parent Epic that is not closed or Removed
+&$expand=Area($select=AreaPath), AssignedTo($select=UserEmail), Custom_TechnicalLead($select=UserEmail), Custom_CommercialLead($select=UserEmail), Custom_DesignControlLead($select=UserEmail)
+&$filter=WorkItemType eq 'Epic' 
+    and Project/ProjectName eq 'GNH' 
+    and Parent/WorkItemId ne null  
+    and Parent/WorkItemType eq 'Portfolio Epic'
+    and State ne 'Closed' and State ne 'Removed'
+    and Parent/State ne 'Closed' and Parent/State ne 'Removed'
+        or (WorkItemType eq 'Epic'
+            and Project/ProjectName eq 'GNH'
+            and Parent/WorkItemId ne null 
+            and Parent/Parent/WorkItemType eq 'Portfolio Epic'
+            and State ne 'Closed' and State ne 'Removed'
+            and Parent/State ne 'Closed' and State ne 'Removed'
+            and Parent/Parent/State ne 'Closed' and State ne 'Removed')
+
+
+https://analytics.dev.azure.com/GNHearing/_odata/v3.0/WorkItems?%24expand=Area%28%24select%3DAreaPath%29%2C+AssignedTo%28%24select%3DUserEmail%29%2C+Custom_TechnicalLead%28%24select%3DUserEmail%29%2C+Custom_CommercialLead%28%24select%3DUserEmail%29%2C+Custom_DesignControlLead%28%24select%3DUserEmail%29+&%24filter=WorkItemType+eq+%27Epic%27+and+Project%2FProjectName+eq+%27GNH%27+and+Parent%2FWorkItemId+ne+null+and+Parent%2FWorkItemType+eq+%27Portfolio+Epic%27+and+State+ne+%27Closed%27+and+State+ne+%27Removed%27+and+Parent%2FState+ne+%27Closed%27+and+Parent%2FState+ne+%27Removed%27+or+%28WorkItemType+eq+%27Epic%27+and+Project%2FProjectName+eq+%27GNH%27+and+Parent%2FWorkItemId+ne+null+and+Parent%2FParent%2FWorkItemType+eq+%27Portfolio+Epic%27+and+State+ne+%27Closed%27+and+State+ne+%27Removed%27+and+Parent%2FState+ne+%27Closed%27+and+State+ne+%27Removed%27+and+Parent%2FParent%2FState+ne+%27Closed%27+and+State+ne+%27Removed%27%29&%24select=WorkItemId%2CWorkItemType%2CTitle%2CState%2CCustom_Prioritized%2CGNH_ValueType%2CPriority%2CParentWorkItemId%2CCustom_Heartbeat%2CCustom_D1Planned%2C+Custom_D3Planned%2C+Custom_D2Planned%2CRisk%2C+Custom_NextDecision%2CCustom_TechnicalLead

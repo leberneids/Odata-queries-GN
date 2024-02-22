@@ -1,0 +1,6 @@
+https://analytics.dev.azure.com/GNHearing/GNH/_odata/v3.0-preview/WorkItems?
+    $select=WorkItemId,WorkItemType,Title,State,ParentWorkItemId, Custom_ReasonForMustDo,GNH_ValueType,Custom_RequestforPI,Custom_Prioritized,
+        and WorkItemType eq 'Portfolio Epic' 
+        and Area/AreaPath eq 'GNH' 
+        and State ne 'Closed' and State ne 'Removed'
+    

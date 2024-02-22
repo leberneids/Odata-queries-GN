@@ -1,8 +1,0 @@
-https://analytics.dev.azure.com/GNHearing/GNH/_odata/v3.0-preview/WorkItems?
-    $select=WorkItemId,WorkItemType,Title,State,TagNames
-    &$expand=AssignedTo($select=UserEmail),
-             Children($select=WorkItemId,WorkItemType,Title,State,TagNames)
-    &$filter=(Project/ProjectName eq 'GNH' 
-        and (WorkItemType eq 'Portfolio Epic' and State ne 'Closed' and State ne 'Removed'))
-        
-https://analytics.dev.azure.com/GNHearing/GNH/_odata/v3.0-preview/WorkItems?%24expand=AssignedTo%28%24select%3DUserEmail%29%2C+Children%28%24select%3DWorkItemId%2CWorkItemType%2CTitle%2CState%2CTagNames%29+&%24filter=%28Project%2FProjectName+eq+%27GNH%27+and+%28WorkItemType+eq+%27Portfolio+Epic%27+and+State+ne+%27Closed%27+and+State+ne+%27Removed%27%29%29&%24select=WorkItemId%2CWorkItemType%2CTitle%2CState%2CTagNames
